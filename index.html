@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кинопоиск</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY0IiBoZWlnaHQ9IjM2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNTguODU5IDE4YzAtNS44ODkgMi45NTQtMTAuNiA4LjI4MS0xMC42IDUuMzI4IDAgOC4yODEgNC43MTEgOC4yODEgMTAuNiAwIDUuODktMi45NTQgMTAuNi04LjI4IDEwLjYtNS4zMjggMC04LjI4Mi00LjcxLTguMjgyLTEwLjZabTguMjgxIDcuNjZjMi4wNzIgMCAyLjk1NC0zLjUzNCAyLjk1NC03LjY1MiAwLTQuMTItLjg4OS03LjY1Mi0yLjk1NC03LjY1Mi0yLjA2NSAwLTIuOTU0IDMuNTMzLTIuOTU0IDcuNjUyLS4wMDcgNC4xMTguODgyIDcuNjUyIDIuOTU0IDcuNjUyWk0zLjg0MyA3Ljd2NS41OTZoLjI5NEw3Ljk4IDcuN2g1LjMybC03LjA5OCA2LjQ3NC4yOTQuMjkzTDE5LjUxIDcuNjkzdjQuNzExTDcuOTczIDE2LjUyM3YuMjkybDExLjUzNy0xLjAyOHY0LjQxOUw3Ljk3MyAxOS4xNzh2LjI5M2wxMS41MzcgNC4xMTh2NC43MTJMNi40OTYgMjEuNTI2bC0uMjk0LjI5MyA3LjA5OCA2LjQ3NEg3Ljk4bC0zLjg0My01LjU5NmgtLjI5NHY1LjU5NkgwVjcuNjg2aDMuODQzVjcuN1ptMTkuMjMgMEgyOC4xbC0uMjk0IDEyLjM2M2guMjk0TDM0LjAxNSA3LjdoNC40Mzh2MjAuNjA4aC01LjAyNmwuMjk0LTEyLjM2NGgtLjI5NEwyNy41MSAyOC4zMDloLTQuNDM4VjcuN1ptMjMuOTU1IDBoLTUuMDI2djIwLjYwOGg1LjAyNnYtOS4xM2g0LjEzN3Y5LjEzaDUuMDI2VjcuN2gtNS4wMjZ2Ny45NTJoLTQuMTM3VjcuN1ptNDUuMjUgMGgtMTQuMTl2MjAuNjA4aDUuMDI3VjExLjIzM2g0LjEzN3YxNy4wNzVoNS4wMjZWNy43Wm0yLjY2IDEwLjNjMC01Ljg4OSAyLjk1NC0xMC42IDguMjgyLTEwLjYgNS4zMiAwIDguMjgxIDQuNzExIDguMjgxIDEwLjYgMCA1Ljg5LTIuOTU0IDEwLjYtOC4yODEgMTAuNi01LjMyIDAtOC4yODItNC43MS04LjI4Mi0xMC42Wm04LjI4MiA3LjY2YzIuMDcyIDAgMi45NTQtMy41MzQgMi45NTQtNy42NTIgMC00LjEyLS44ODktNy42NTItMi45NTQtNy42NTItMi4wNzIgMC0yLjk1NCAzLjUzMy0yLjk1NCA3LjY1MiAwIDQuMTE4Ljg4MiA3LjY1MiAyLjk1NCA3LjY1MlpNMTE5LjE4NyA3LjdoLTUuMDI2djIwLjYwOGg0LjQzOGw1LjkxNi0xMi4zNjRoLjI5NGwtLjI5NCAxMi4zNjRoNS4wMjZWNy43aC00LjQzOGwtNS45MTYgMTIuMzYzaC0uMjk0bC4yOTQtMTIuMzYzWm0yMy42NjkgMTMuNTQxIDQuNzMyLjU4NWMtLjg4OSA0LjEyLTIuOTU0IDYuNzc0LTcuMzY0IDYuNzc0LTUuMzIgMC04LjAxNi00LjcxLTguMDE2LTEwLjYgMC01Ljg4OSAyLjY4OS0xMC42IDguMDE2LTEwLjYgNC4zMTcgMCA2LjQ3NSAyLjY0OSA3LjM2NCA2LjQ3NWwtNC43MzIgMS4xNzdjLS4yOTQtMi4wNjMtMS4xNTUtNC43MS0yLjYzMi00LjcxLTEuNzcxIDAtMi42ODkgMy41MzMtMi42ODkgNy42NTEgMCA0LjA5LjkxOCA3LjY1MiAyLjY4OSA3LjY1MiAxLjQ0OS4wMTUgMi4zMy0yLjM0MSAyLjYzMi00LjQwNFptMTEuODMtMTMuNTRoLTQuNzMydjIwLjYwN2g0LjczMnYtOS4xM2guMjk0bDMuNTQ5IDkuMTNIMTY0bC01LjE3Ny0xMC42TDE2My44NDkgNy43aC01LjAyNmwtMy44NDMgOS4xM2gtLjI5NFY3LjdaIiBmaWxsPSIjZmZmIi8+PC9zdmc+Cg=="
+            alt="Кинопоиск"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">
+                <img
+                  src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826Pfu4vc/RKlv2hAt2Ozkm3AmxYE2IIPki9qNbhY-Fvj075So2sXdQf1uKJ4tS1tRLgKDmpbLegF0eXUzJ1NCkyhWS89ayEQYyw8RCMzMtZ9xRnXQUqEG1E7OLduWrbROFo3mHvnGH9Pf3n0aPL7OxJoG9mo3zu7VRR_TkrKVZHJc4t3aKE3TbOpq4e7YjNX6FaZVcvKjgqQaO35oNJzFPBUO51wrdJ8AbF-dWioMjOZKBzXadr_5tDY-UAZC57YzzaI9eaj-8S6pyMDc2C6kKAXldyNgoQPWGqnsWXe_JXx07IbMOLRdcO-ej0vqrL5GmVfWKofNyIYXHaDVEmZVcy2APghIzmJcmLpyb-i996oUdSWjAqNRN8jYTbmX38S9Zx2FHCr0PzBMPk152n4Ml3iF5-rk3Oh0dryiduMHt1MNgk96G-3ifro60ZxYjMbpJ1a3gJDz4lRKGOyalnyV7CWu1q17tN8xnG_fO1l9TsaodrRo1g0IxHXvMhQhNeWxfUD8S8ovEI74OYDPav2F2NSHZTCjokHUShv-edWOh49Wf_S-aPctge0snws6fDy2iOR2OGRuabfG7xLnEpQFgJ9A_Av5vNF8GnrRfwo8Fyr0NFRDQgHTx2vLzHvUzsbOx4-EnshU_NH8b5_5OH1-dNl3dGj1zzqU1P9wtEIlxeMuYHwoGmwgLWmKUg26LiS6xPbXADORMXbre_-L171VLIQMZtyYFs4CX46cmknd3ddKx5X6BW_7tWT9cxezFrUjvGIdekiuA97ZuxJ-mDyEmxQWJPKSk6FleNucy1dMtxw1DbUNqBTsgf-Of1sJ_XwGC1anuGduKqZ0zyJ2gxSn0H1BbqhoDHBs-8qCXPi_9eolZ1awkOKCdts5_YoXzBVdpT3nbZn2TKLdT6xLWn7d1Tp3VkvnX_hU1V5ANeFkVDF-8Px4mu-SD_u6oNybnXeKd6TnQDOyINXJuby4BHwHHQZPF4x5h69gLp-uqequ72TpdpS6Bpy4RyfNgnTB5DewT8Ht2cn8U8zISIBfOYzk6QYEB2JzsEOVCfv9ylQutJyVz3TsGXT-8A1cHtgLfOyFOtdXGLRfCOf1HQKnsgf1om9zvbi6fjIdGUohn7rul2qkFObQs1IwtSrYDrv2jMavdkxWjInFD7IsP06JOI1M5MqlZwrWXXqE1s8wxdL058IMY77K2f1jLdvqgbxavKVa5Zc28JKScmaoii54Nq827jXcZZx6JE7TP0xuS3iN_narZ8SIJBwppMVughZBBcfDzwAOi9tc4j-LujGsqb_W6jfEd-IjwoPVKItNm1XuBf1n_VeuSlbesw_dvXl6vP8FCXV2yeS9-SUGbLB3ssa1sLxA_aqrz6Cc6Vrx7Tjd9SoFhmfSQ_BitEkLzkm1n0We9F2l3VgX7ALPvE84CszM9snlNIhkrziGFN8QReFFldBfMe46Wn9iDQoK8Vy5b2Tohqe2sNLyMyU6OL7JZ5wVjhbNpI5qZs6BnS5sGurvfcdah0cJBm_a5VRc8sTyxgVBXiOceqhtoF-rWmHfm54XWJaG1SDw88MkyRnvqkY-5iw1HJe8qKX_MuwvfMm5zAzF-cbke6Wda5VGXkF1EXQlsi4C_ejbXeNP-ahT_6jMxKsmVMThUfBThltIbBtUfGSsVl33_viUL4JNTq6peQ4elXo3Boskjyt3Rd7gBiK2J7AuMnyIig0Bz6tIk-8rnZfIp-dm8TNAEzdJ-5yJ15xX_6T_9pzrxY_RXS9uCtvNbiaJ1pbolEzqt0aewDTRJIQTDiMsC1o-Ql47yHAsueymyjWFR5DDo8Om-alMOYWMV2yVn6atmtTs8u4tvpoL3g83-aW12Ja8iAaUv2P0ocQXUL7hD6nK_fO-q9lBvfu-RoiEZiThofPDFOtqbBgl_9fsxk-mfSimbtFtrH8bOU6eBklXpsoF7tjUps7jJkKElFEPoQ456v3wLXiJI59bboQb1pUVoNCzkVcbOl-4FO9XfPRdZ42rRx7CXG5umtsfbkTbdNZL9Ix5N-ctQCUT57QQjlHf2tgdU6_KeWMOyWwnerXXN4ESoCNWGhotmNRsZew2jfbMi2bckGwNrDn47CwnSGVkeyZNeJU3zYKEkPXUAw7hHNnJfwP_e8hS7Wn-helFRCaCUZEi9_irrXo1reffVu2XbVvknsAMn65K2C4OFLpVh_vlf0qkxt1QJdJnteB90y_ra7_zfVoaE_07__ap1teWUZADU7SZW-4Il-03boQNN1xIRJ-Bz-5s2Er-zSVaNLTKh7xI1QYcQnRD10cRzkEd2lieQByKOLBsSN6leJSkVxEQU3M3SKtMerRNV32GbTeNeCXewhysPMgrH39letXUOvRf-RU0rnFm4MX1YB8B74tpTUM_ChiDX1qMh0ol9qdwoKOT5Kj67LjVfsUOpE23_thkvWMsH93LOz3chEjlRxkn3jskhA7yt_Jn9cMvgXxYea8yD1mqw_zLHeU55cUUkJJBAvZKmq6K1byELCX8pzxahH1jfqxMq7rsTrVZ1yYYF977ReYvUAQjxtQgbVLeahuu4ayKKMPMit_WmnW2hmMTQICXCMnOObQNRU0UbRWfmWWd4mxP7cvrbe52CoW0S9dcaiS0vYKE4-f1Iy_iPEu7fjKO2KgQLGqvZhnW9vfjUjGw5UnaDvtkTQY9ZOz2vMv3z1FvHS446T5e5wvlNAr0jwt0lpzQdyIWJFO8McyaW42QXSuJAkyp_6SaFERnoWAwgoSryd2aBq0mzXYdZx65x_9hLr5_SMt9Tibq1lRqd3zK5PSew0Zi1FRQPhFuCrm8Qx_rahNdadwHKiZGlyJR43GGyNpNqua-N-43PsV_CZT-AR4NHgm5zUwWWiTkSZXOOGQEjuEGgJREI30jrHm73VJOuXrgH9i8BXjHtsWxQbKDpEgYHorG_IVuJcxUrXrUbXP__k86GBwcR_mVtOrmTAhWdp9w9-KkE"
+                />
+                Онлайн-кинотеатр
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <img
+                  src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826Pfu4vc/RKlv2hAt2Ozkm3AmxYE2IIPki9qNbhY-Fvj075So2sXdQf1uKJ4tS1tRLgfD6pbrSiEReSVjtyNHFj1TO__a6CR9jjpkeJy81a_Ug5BQN-QTpD6uLduWrbROFo3mHvnGH9Pf3n0aPL7OxJoG9mo3zu7VRR_TkrKVZHJc4t3aKE3TbOpq4e7YjNX6FaZVcvKjgqQaO35oNJzFPBUO51wrdJ8AbF-dWioMjOZKBzXadr_5tDY-UAZC57YzzaI9eaj-8S6pyMDc2C6kKAXldyNgoQPWGqnsWXe_JXx07IbMOLRdcO-ej0vqrL5GmVfWKofNyIYXHaDVEmZVcy2APghIzmJcmLpyb-i996oUdSWjAqNRN8jYTbmX38S9Zx2FHCr0PzBMPk152n4Ml3iF5-rk3Oh0dryiduMHt1MNgk96G-3ifro60ZxYjMbpJ1a3gJDz4lRKGOyalnyV7CWu1q17tN8xnG_fO1l9TsaodrRo1g0IxHXvMhQhNeWxfUD8S8ovEI74OYDPav2F2NSHZTCjokHUShv-edWOh49Wf_S-aPctge0snws6fDy2iOR2OGRuabfG7xLnEpQFgJ9A_Av5vNF8GnrRfwo8Fyr0NFRDQgHTx2vLzHvUzsbOx4-EnshU_NH8b5_5OH1-dNl3dGj1zzqU1P9wtEIlxeMuYHwoGmwgLWmKUg26LiS6xPbXADORMXbre_-L171VLIQMZtyYFs4CX46cmknd3ddKx5X6BW_7tWT9cxezFrUjvGIdekiuA97ZuxJ-mDyEmxQWJPKSk6FleNucy1dMtxw1DbUNqBTsgf-Of1sJ_XwGC1anuGduKqZ0zyJ2gxSn0H1BbqhoDHBs-8qCXPi_9eolZ1awkOKCdts5_YoXzBVdpT3nbZn2TKLdT6xLWn7d1Tp3VkvnX_hU1V5ANeFkVDF-8Px4mu-SD_u6oNybnXeKd6TnQDOyINXJuby4BHwHHQZPF4x5h69gLp-uqequ72TpdpS6Bpy4RyfNgnTB5DewT8Ht2cn8U8zISIBfOYzk6QYEB2JzsEOVCfv9ylQutJyVz3TsGXT-8A1cHtgLfOyFOtdXGLRfCOf1HQKnsgf1om9zvbi6fjIdGUohn7rul2qkFObQs1IwtSrYDrv2jMavdkxWjInFD7IsP06JOI1M5MqlZwrWXXqE1s8wxdL058IMY77K2f1jLdvqgbxavKVa5Zc28JKScmaoii54Nq827jXcZZx6JE7TP0xuS3iN_narZ8SIJBwppMVughZBBcfDzwAOi9tc4j-LujGsqb_W6jfEd-IjwoPVKItNm1XuBf1n_VeuSlbesw_dvXl6vP8FCXV2yeS9-SUGbLB3ssa1sLxA_aqrz6Cc6Vrx7Tjd9SoFhmfSQ_BitEkLzkm1n0We9F2l3VgX7ALPvE84CszM9snlNIhkrziGFN8QReFFldBfMe46Wn9iDQoK8Vy5b2Tohqe2sNLyMyU6OL7JZ5wVjhbNpI5qZs6BnS5sGurvfcdah0cJBm_a5VRc8sTyxgVBXiOceqhtoF-rWmHfm54XWJaG1SDw88MkyRnvqkY-5iw1HJe8qKX_MuwvfMm5zAzF-cbke6Wda5VGXkF1EXQlsi4C_ejbXeNP-ahT_6jMxKsmVMThUfBThltIbBtUfGSsVl33_viUL4JNTq6peQ4elXo3Boskjyt3Rd7gBiK2J7AuMnyIig0Bz6tIk-8rnZfIp-dm8TNAEzdJ-5yJ15xX_6T_9pzrxY_RXS9uCtvNbiaJ1pbolEzqt0aewDTRJIQTDiMsC1o-Ql47yHAsueymyjWFR5DDo8Om-alMOYWMV2yVn6atmtTs8u4tvpoL3g83-aW12Ja8iAaUv2P0ocQXUL7hD6nK_fO-q9lBvfu-RoiEZiThofPDFOtqbBgl_9fsxk-mfSimbtFtrH8bOU6eBklXpsoF7tjUps7jJkKElFEPoQ456v3wLXiJI59bboQb1pUVoNCzkVcbOl-4FO9XfPRdZ42rRx7CXG5umtsfbkTbdNZL9Ix5N-ctQCUT57QQjlHf2tgdU6_KeWMOyWwnerXXN4ESoCNWGhotmNRsZew2jfbMi2bckGwNrDn47CwnSGVkeyZNeJU3zYKEkPXUAw7hHNnJfwP_e8hS7Wn-helFRCaCUZEi9_irrXo1reffVu2XbVvknsAMn65K2C4OFLpVh_vlf0qkxt1QJdJnteB90y_ra7_zfVoaE_07__ap1teWUZADU7SZW-4Il-03boQNN1xIRJ-Bz-5s2Er-zSVaNLTKh7xI1QYcQnRD10cRzkEd2lieQByKOLBsSN6leJSkVxEQU3M3SKtMerRNV32GbTeNeCXewhysPMgrH39letXUOvRf-RU0rnFm4MX1YB8B74tpTUM_ChiDX1qMh0ol9qdwoKOT5Kj67LjVfsUOpE23_thkvWMsH93LOz3chEjlRxkn3jskhA7yt_Jn9cMvgXxYea8yD1mqw_zLHeU55cUUkJJBAvZKmq6K1byELCX8pzxahH1jfqxMq7rsTrVZ1yYYF977ReYvUAQjxtQgbVLeahuu4ayKKMPMit_WmnW2hmMTQICXCMnOObQNRU0UbRWfmWWd4mxP7cvrbe52CoW0S9dcaiS0vYKE4-f1Iy_iPEu7fjKO2KgQLGqvZhnW9vfjUjGw5UnaDvtkTQY9ZOz2vMv3z1FvHS446T5e5wvlNAr0jwt0lpzQdyIWJFO8McyaW42QXSuJAkyp_6SaFERnoWAwgoSryd2aBq0mzXYdZx65x_9hLr5_SMt9Tibq1lRqd3zK5PSew0Zi1FRQPhFuCrm8Qx_rahNdadwHKiZGlyJR43GGyNpNqua-N-43PsV_CZT-AR4NHgm5zUwWWiTkSZXOOGQEjuEGgJREI30jrHm73VJOuXrgH9i8BXjHtsWxQbKDpEgYHorG_IVuJcxUrXrUbXP__k86GBwcR_mVtOrmTAhWdp9w9-KkE"
+                />
+                Установить на ТВ
+              </a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-light" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h3 class="subtitle">Премьеры Кинопоиска 2022-2023</h3>
+      <div class="my-4">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CotB_2JzHzNqryQhbEVz10OT1i1W294fnWRY__-RHazoIKpxs2WFV6FDkQuv-B_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Конец света</h6>
+                <p>2022, комедия</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosxX_Lj36PqqiQBOQBG98Pj01j2y94fmPQtv_oUaFy4Ja9RQwWVd0EzxD76uB_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Монастырь</h6>
+                <p>2022, драма</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosRD4Kzn8PqqhFBSRAGgnbz1mgTS-4fmDRt__oheFz4IJoko5CFN-QzlA6vmB_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Гром: Трудное детство</h6>
+                <p>2023, боевик</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosRD4Kzn8PqrzFEGUBTh0Oz1h02O44fmEE9z_-Uzaz4Jd9ko2X1V1Q2wV7fSB_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Азазель</h6>
+                <p>2023, детектив</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosxX_Lj36Pqr7ExbBVzx1aD1ijmG84fmORdv_oRHfm4IJ_U5jC1YpQjlEuKiB_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Король и Шут</h6>
+                <p>2023, биография</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosxX_Lj36PqqlFECVA2gnPT1nhWDs4fmPEYv_-ELYmIIK_Bw4BFIqFWYf6_6B_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Сердце пармы</h6>
+                <p>2022, драма</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosxX_Lj36Pqr7R0bGUTlzbT0z0Gy44fnRR4__-EWLw4IK8hlgWFd-QWkR4fWB_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Слон</h6>
+                <p>2022, триллер</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosxX_Lj36PqqhFUKaVjMhPj1ihWbp4fmPFon_okeLnoIK_B8wDwZ_EjtE7a6B_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Чинк: Хвостатый детектив</h6>
+                <p>2022, мультфильм</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/db7077b0-7b06-41ea-88fe-79d6f7910bfd/300x450"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Волшебники</h6>
+                <p>2022, фэнтези</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://kinopoisk-ru.clstorage.net/1WZ7m0085/904826eqCtu9/YE2KCzWtGe3BW9TW9YBTRfMUOt4smqealwyUfzTs-nW9FZ2v3Hs4CosRD4Kzn8PqqnE0LEXjp8Pj1pj2C34fnRQIv_-UKLw4IP9hpnXgN-QmkRuviB_D20Y5QcrGH_j2n4K_zC75OsyfJQuDFio2Hqs0lN0Q0lNnlPDpY41Zu5zwjrvIke-o3bVa59c14EKQc7TZar57pq_mHoZdh26K9RyD_R6ceel_HsVLlaRoFM6q9yScYcUyFLVzfZP_i_oNsG4YSCLN6p4Xe9XXl5GQgDCWiPi8-tSvdIy3HqSOypT-4m0NXLuZ_N_XWlUEWrQd-hTUbRP0ADWWg67Dfmi67ZJtaagSXpivZclm5wTCEpGgxAiavqg1fQUtV_7EbwuHD-G9HxzZ2V9_FWhl1uhl_CglFA4C1PJUN4ENMh-Kms2QHBv7Md66jeVqlVc181Gig1YrCO4bVv_FjHT_Zz5axbyyDE5cOdiPLocq5tWqNCzbdpY80zRCV2QRb_At2Hi9Uq8qKvMsSs_mO8ZlRLBgUVKEmzu_uNb_xp6XvJUsObZtkB9dH8to_m3HGoXU2EQMSbTGjrBVMeRkMZzDjDhJX1Kvahlg7bgtpWp2BYUiknHhtejaHCrF3haslb3VbXgnneA__bwaOO8ux-iH1ZqGXdq2lh8RBhL2dFPPkz34Ku5yL0n6sBzpXlXpBLWXEQJBIzarq4zIdF6mn2W-pv6aZB4Cfa3-KOtMz8SL9nU5Jc5qVwTvscczRnZQbGIOiOp8cE4bqHI_Gu5kqXeXhbEjkcPFWQqOWGfNBvwlPlccqtUf0ayd_Apo7M8nSrZVmPSP-2VGjbAWIFZEAQ1SDJoZvVM9yYjQTKjMFTlV9wbAUqCytxsI_3t0buSdZH7XvutFL4PMrB6qS84O9Frl1jknvtqUtQ2BxNL31WNOMHxp-L7irxl6M67LzGUb1ZQkQjLycQbrq6_Z13xk3FZtZ6yr5l1zLUxvSYk93va4VQYLlm3bVkTsQoTBBUahDxD8CnmP0764KSBvCP-XO1Y2NdFRg9Hmyeutupe8Jp0kPTUfKnXdEE0snBgZHh1GybTUCHe-epXmXoE0YdeWIdxjH8hrr2Hu2VqiDtkulZqWtVei0iHBB3srT8m3nwVuVZ-XbRmWXjItvC3pWz9-FpiHJagWTgil9DyDRgL0RBO-A-zaC8xx7as5IV_p7DU6tVUFkOJgQtdbCo-LZB1XTpZftJ1Y1c4BPU_MqDosDTZaxyUahC_KBnbOwhUi5-WhbZAd-goPEl3qO4De-7xliqWmBuNSshGWSbvfetedVi11PPWuS4fvMw9_vjhaHJzlaMUUG_eN2LQ3DmPFoyTnkwxj3oh5fFKuy0sTnFjehUrkN2TAkoBThnnb7Zu2_Naup9yE7igUT8F8bf8K69z9Fym1ZCgETUj2do5xBAA2VDM-MF2oGZ8jvVu6o17JPdVKVbbWUVADclcbSu_KJ4_l3icOh7449t_AL1-OKGiObzQLVUeZNd4qhffsseZjdtfRvyPeOIieMc8bSLGcm5yF2taUJyLgE1M0i2juOiZ8xI9ELyVNmtUO8x2dTRnb_24k2AZk6Dd9ayaFT0NXE2TVYg7AbBh77hCuiTuB34vOd-j2p3XxE6OBJUrJ7aqE7pUM9T1nzxq2T5NfzXzJa14P9rjGpvpn_prEdc5RF_FnVcN9864aee4gL-lq0T0LnJco5iQkonAiModaq13qNfwm_Ge-h_xJRO2SPd4taThObjYbZGWK1A17VBZ-ktYxZBXjTwA8udrOMX9quuJ-mgwXyyW2VZNysFCmO1u-OqRMdCzX7Jf82nWNwgyvPAob_Wzmi7R268V9CHcmfGK0gLY0QI9w3CqZfvNcyCohz3qcBvq09AdzMAGzxUo57joWXrcM9kzkfFomXcLcHU6IOH7tJwqG5nr0zfpkNO8w5FKERcBdk5ypmM-zXVgKIczpT1aYllTXsaNTQPQLSK5oVa7nP1Z99PzKFE8DLJ6v-CtPLzaLZLeKtl_ZFLUeUkWxxaZjXsL_idlOQ4y7OMFva_2m2AfG1RLCMALWKoq92lSvx012vXfOWtafkm2-jjp5f0z0KEdEyNXMyKaFzJNEExVGof9B7enKzvNPuCmjPztMF-nkZkewUcCRxynJjNv1TXbNlFy2TGm2__PMbgx4KR_e9ltnhurmPvhFBQ-hdiLkVnNeA3-IKb3BfIqLY8-5bcWo9DRGwxFTAnf6CB6qtiyGjub-9pzYZB9T_X2seWjcrzTJ9VYp196ZdjRtYnRTJJdhD5LPetgOU067uEJ82L3nC2VHZ5DAEXG2uohOijX9diyU3Vb8y2Z_UyxNzTgrD-1k2ZS3m5f-eBbEHoHFkxYlUh0x3cip3xO86omRf_s9xzhWVTWy8qAjRts4vmrmHSeMVrxlbrhEX9Nf7Yxbij9ehdqElTh2zEiF580AB6KmhdHMI3_ICu-TLzmZcw7LbnV49cSk0IFgEPU7Clz79P9HzmS8py-axe7DnW9sm4pt7RS6BUSqR9165Ob9AMfDxKRzf_Le6emtQI0L-3LdaL33eMWFZuMi8GNnyItdeZW9FK7X3Rbu-_R_cT6sjXsLfw612lTFCoSOKHa1PYJWopY2of8y_8jq7_BvKluiDkrvd6slZRZToVMjFkjKLEnn_AduFQ1WrYuE_pId_h8puHxcdilWlroVj0j29B5RN_K0F_MM8w4Zmnwjn_u7UayZHFa5RaZGkSKRkYYK-C17hh4UvXRvto17lg8Dv4wvGYg9_ydZdNWq1G57lpSdovZi1hXgPbPMaZn-Az1rWWB_29y1qFRmZTKSo5N2icn-iIR9By1Ej6WcWNcsod48fBjoDUxGGAZlqOTeiSa3fxAE4iYFwn1RjHnqvTH_GFsBboqOpVsW1wUwwEJjJBrZr3qm_cV-ZK_nLtjF3jAMTzyLmuy_FyuntPi1fTh2FAySNNBUE"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h6>Король и Шут</h6>
+                <p>2023, биография</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <h4 class="footer-author">Проект Белокопытина Павла</h4>
+    </footer>
+  </body>
+</html>
